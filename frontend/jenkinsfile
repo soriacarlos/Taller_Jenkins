@@ -1,5 +1,18 @@
+def COLOR_MAP = [
+  'SUCCESS': 'good',
+  'FAILURE': 'danger'
+]
+
+def getBuildUser() {
+  return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
+}
+
 pipeline {
   agent any
+
+  environment {
+    BUILD_USER = ''
+  }
 
   tools {
     nodejs "node"
@@ -54,5 +67,19 @@ pipeline {
       }
     }
 
+  }
+
+  post {
+    always {
+
+      script {
+        BUILD_USER = getBuildUser()
+      }
+
+      slackSend channel: 'jenkins-example',
+                color: COLOR_MAP[currentBuild.currentResult],
+                message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER} \n Container executed ${container_name} \n More info at ${env.BUILD_URL}"
+
+    }
   }
 }
