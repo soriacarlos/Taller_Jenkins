@@ -69,7 +69,7 @@ pipeline {
 
     stage('Notifier') {
       steps {
-        discordSend description: "Jenkins - Taller Jenkins", footer: "---", link: env.BUILD_URL, result: currentBuild.currentResult, title: JOB_NAME, webhookURL: "https://discord.com/api/webhooks/1029196176198733924/K7qv_nuhdAITZmWdw1qRVAAJ7OsWMvRYNb8_FoGXKuGkycrgDwqNhLP-VpcNb6NnWzNr"
+        discordSend description: "Jenkins - Taller Jenkins", footer: "---", link: ${env.BUILD_URL}, result: ${currentBuild.currentResult}, title: ${JOB_NAME}, webhookURL: "https://discord.com/api/webhooks/1029196176198733924/K7qv_nuhdAITZmWdw1qRVAAJ7OsWMvRYNb8_FoGXKuGkycrgDwqNhLP-VpcNb6NnWzNr"
       }
     }
 
