@@ -11,41 +11,7 @@
       // URL of image png/jpg to place to right of Discord build notifications
       //def discordImage = 'https://blabla.png'
 
-      def discordDesc = "BRANCH_NAME: ${BRANCH_NAME} \n
-                         BRANCH_IS_PRIMARY: ${BRANCH_IS_PRIMARY} \n
-                         CHANGE_ID: ${CHANGE_ID} \n
-                         CHANGE_URL: ${CHANGE_URL} \n
-                         CHANGE_TITLE: ${CHANGE_TITLE} \n
-                         CHANGE_AUTHOR: ${CHANGE_AUTHOR} \n
-                         CHANGE_AUTHOR_DISPLAY_NAME: ${CHANGE_AUTHOR_DISPLAY_NAME} \n
-                         CHANGE_AUTHOR_EMAIL: ${CHANGE_AUTHOR_EMAIL} \n
-                         CHANGE_TARGET: ${CHANGE_TARGET} \n
-                         CHANGE_BRANCH: ${CHANGE_BRANCH} \n
-                         CHANGE_FORK: ${CHANGE_FORK} \n
-                         TAG_NAME: ${TAG_NAME} \n
-                         TAG_TIMESTAMP: ${TAG_TIMESTAMP} \n
-                         TAG_UNIXTIME: ${TAG_UNIXTIME} \n
-                         TAG_DATE: ${TAG_DATE} \n
-                         JOB_DISPLAY_URL: ${JOB_DISPLAY_URL} \n
-                         RUN_DISPLAY_URL: ${RUN_DISPLAY_URL} \n
-                         RUN_ARTIFACTS_DISPLAY_URL: ${RUN_ARTIFACTS_DISPLAY_URL} \n
-                         RUN_CHANGES_DISPLAY_URL: ${RUN_CHANGES_DISPLAY_URL} \n
-                         RUN_TESTS_DISPLAY_URL: ${RUN_TESTS_DISPLAY_URL} \n
-                         BUILD_NUMBER: ${BUILD_NUMBER} \n
-                         BUILD_ID: ${BUILD_ID} \n
-                         BUILD_DISPLAY_NAME: ${BUILD_DISPLAY_NAME} \n
-                         JOB_NAME: ${JOB_NAME} \n
-                         JOB_BASE_NAME: ${JOB_BASE_NAME} \n
-                         BUILD_TAG: ${BUILD_TAG} \n
-                         EXECUTOR_NUMBER: ${EXECUTOR_NUMBER} \n
-                         NODE_NAME: ${NODE_NAME} \n
-                         NODE_LABELS: ${NODE_LABELS} \n
-                         WORKSPACE : ${WORKSPACE} \n
-                         WORKSPACE_TMP: ${WORKSPACE_TMP} \n
-                         JENKINS_HOME: ${JENKINS_HOME} \n
-                         JENKINS_URL: ${JENKINS_URL} \n
-                         BUILD_URL: ${BUILD_URL} \n
-                         JOB_URL: ${JOB_URL}"
+      def discordDesc = "BRANCH_NAME: ${BRANCH_NAME} \n BRANCH_IS_PRIMARY: ${BRANCH_IS_PRIMARY} \n CHANGE_ID: ${CHANGE_ID} \n CHANGE_URL: ${CHANGE_URL} \n CHANGE_TITLE: ${CHANGE_TITLE} \n CHANGE_AUTHOR: ${CHANGE_AUTHOR} \n CHANGE_AUTHOR_DISPLAY_NAME: ${CHANGE_AUTHOR_DISPLAY_NAME} \n CHANGE_AUTHOR_EMAIL: ${CHANGE_AUTHOR_EMAIL} \n CHANGE_TARGET: ${CHANGE_TARGET} \n CHANGE_BRANCH: ${CHANGE_BRANCH} \n CHANGE_FORK: ${CHANGE_FORK} \n TAG_NAME: ${TAG_NAME} \n TAG_TIMESTAMP: ${TAG_TIMESTAMP} \n TAG_UNIXTIME: ${TAG_UNIXTIME} \n TAG_DATE: ${TAG_DATE} \n JOB_DISPLAY_URL: ${JOB_DISPLAY_URL} \n RUN_DISPLAY_URL: ${RUN_DISPLAY_URL} \n RUN_ARTIFACTS_DISPLAY_URL: ${RUN_ARTIFACTS_DISPLAY_URL} \n RUN_CHANGES_DISPLAY_URL: ${RUN_CHANGES_DISPLAY_URL} \n RUN_TESTS_DISPLAY_URL: ${RUN_TESTS_DISPLAY_URL} \n BUILD_NUMBER: ${BUILD_NUMBER} \n BUILD_ID: ${BUILD_ID} \n BUILD_DISPLAY_NAME: ${BUILD_DISPLAY_NAME} \n JOB_NAME: ${JOB_NAME} \n JOB_BASE_NAME: ${JOB_BASE_NAME} \n BUILD_TAG: ${BUILD_TAG} \n EXECUTOR_NUMBER: ${EXECUTOR_NUMBER} \n NODE_NAME: ${NODE_NAME} \n NODE_LABELS: ${NODE_LABELS} \n WORKSPACE : ${WORKSPACE} \n WORKSPACE_TMP: ${WORKSPACE_TMP} \n JENKINS_HOME: ${JENKINS_HOME} \n JENKINS_URL: ${JENKINS_URL} \n BUILD_URL: ${BUILD_URL} \n JOB_URL: ${JOB_URL}"
       def discordFooter = "footer desc with vars: ${env.JOB_BASE_NAME}` (build #${BUILD_NUMBER})"
       def discordTitle = "${BUILD_DISPLAY_NAME} (develop)"
 pipeline {
