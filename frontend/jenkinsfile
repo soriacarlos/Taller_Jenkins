@@ -6,7 +6,14 @@
 // def getBuildUser() {
 //   return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
 // }
+// URL of Discord webhook for posting build notifications
+      def discordURL = 'https://discord.com/api/webhooks/1029196176198733924/K7qv_nuhdAITZmWdw1qRVAAJ7OsWMvRYNb8_FoGXKuGkycrgDwqNhLP-VpcNb6NnWzNr'
+      // URL of image png/jpg to place to right of Discord build notifications
+      //def discordImage = 'https://blabla.png'
 
+      def discordDesc = "description\n"
+      def discordFooter = "footer desc with vars: ${env.JOB_BASE_NAME}` (build #${BUILD_NUMBER})"
+      def discordTitle = "${buildName} (develop)"
 pipeline {
   agent any
 
@@ -78,7 +85,19 @@ pipeline {
 
   post {
     always {
-      discordSend result: currentBuild.currentResult, showChangeset: true, title: 'Jenkins - TallerJenkins', webhookURL: 'https://discord.com/api/webhooks/1029196176198733924/K7qv_nuhdAITZmWdw1qRVAAJ7OsWMvRYNb8_FoGXKuGkycrgDwqNhLP-VpcNb6NnWzNr'
+        discordSend description: discordDesc,
+                    footer: discordFooter,
+                    link: env.JOB_URL,
+                    result: currentBuild.currentResult,
+                    title: discordTitle,
+                    webhookURL: discordURL,
+                    successful: currentBuild.resultIsBetterOrEqualTo('SUCCESS')
+                    //thumbnail: discordImage
+//       discordSend result: currentBuild.currentResult,
+//                   showChangeset: true,
+//                   description: "*ESTADO:* ${currentBuild.currentResult} \n *Autor:* ${customUsername} \n **"
+//                   title: 'Jenkins - TallerJenkins',
+//                   webhookURL: 'https://discord.com/api/webhooks/1029196176198733924/K7qv_nuhdAITZmWdw1qRVAAJ7OsWMvRYNb8_FoGXKuGkycrgDwqNhLP-VpcNb6NnWzNr'
     }
   }
 //   post {
