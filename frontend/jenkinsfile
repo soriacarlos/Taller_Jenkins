@@ -1,11 +1,11 @@
-def COLOR_MAP = [
-  'SUCCESS': 'good',
-  'FAILURE': 'danger'
-]
+// def COLOR_MAP = [
+//   'SUCCESS': 'good',
+//   'FAILURE': 'danger'
+// ]
 
-def getBuildUser() {
-  return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
-}
+// def getBuildUser() {
+//   return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
+// }
 
 pipeline {
   agent any
@@ -67,19 +67,25 @@ pipeline {
       }
     }
 
-  }
-
-  post {
-    always {
-
-      script {
-        BUILD_USER = getBuildUser()
+    stage('Notifier') {
+      steps {
+        discordSend description: '', enableArtifactsList: true, footer: '', image: '', link: '', result: '', scmWebUrl: '', thumbnail: '', title: 'discord-notifier-test-title', webhookURL: 'https://discord.com/api/webhooks/1029196176198733924/K7qv_nuhdAITZmWdw1qRVAAJ7OsWMvRYNb8_FoGXKuGkycrgDwqNhLP-VpcNb6NnWzNr'
       }
-
-      slackSend channel: 'jenkins-example',
-                color: COLOR_MAP[currentBuild.currentResult],
-                message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER} \n Container executed ${container_name} \n More info at ${env.BUILD_URL}"
-
     }
+
   }
+
+//   post {
+//     always {
+//
+//       script {
+//         BUILD_USER = getBuildUser()
+//       }
+//
+//       slackSend channel: 'jenkins-example',
+//                 color: COLOR_MAP[currentBuild.currentResult],
+//                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER} \n Container executed ${container_name} \n More info at ${env.BUILD_URL}"
+//
+//     }
+//   }
 }
