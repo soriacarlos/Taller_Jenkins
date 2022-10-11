@@ -13,7 +13,7 @@
 
       def discordDesc = "description\n"
       def discordFooter = "footer desc with vars: ${env.JOB_BASE_NAME}` (build #${BUILD_NUMBER})"
-      def discordTitle = "${buildName} (develop)"
+      def discordTitle = "${BUILD_DISPLAY_NAME} (develop)"
 pipeline {
   agent any
 
