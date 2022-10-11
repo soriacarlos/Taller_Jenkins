@@ -14,10 +14,7 @@
       def BRANCH_NAME = getCurrentBranch()
       //echo 'Current branch is' + BRANCH_NAME
       def getCurrentBranch () {
-          return sh (
-          script: 'git name-rev --name-only HEAD',
-          returnStdout: true
-          ).trim()
+          return sh (script: 'git name-rev --name-only HEAD', returnStdout: true).trim()
       }
 
       def discordDesc = "BRANCH_NAME: ${BRANCH_NAME} \n BRANCH_IS_PRIMARY: ${env.BRANCH_IS_PRIMARY} \n CHANGE_ID: ${env.CHANGE_ID} \n CHANGE_URL: ${env.CHANGE_URL} \n CHANGE_TITLE: ${env.CHANGE_TITLE} \n CHANGE_AUTHOR: ${env.CHANGE_AUTHOR} \n CHANGE_AUTHOR_DISPLAY_NAME: ${env.CHANGE_AUTHOR_DISPLAY_NAME} \n CHANGE_AUTHOR_EMAIL: ${env.CHANGE_AUTHOR_EMAIL} \n CHANGE_TARGET: ${env.CHANGE_TARGET} \n CHANGE_BRANCH: ${env.CHANGE_BRANCH} \n CHANGE_FORK: ${env.CHANGE_FORK} \n TAG_NAME: ${env.TAG_NAME} \n TAG_TIMESTAMP: ${env.TAG_TIMESTAMP} \n TAG_UNIXTIME: ${env.TAG_UNIXTIME} \n TAG_DATE: ${env.TAG_DATE} \n JOB_DISPLAY_URL: ${env.JOB_DISPLAY_URL} \n RUN_DISPLAY_URL: ${env.RUN_DISPLAY_URL} \n RUN_ARTIFACTS_DISPLAY_URL: ${env.RUN_ARTIFACTS_DISPLAY_URL} \n RUN_CHANGES_DISPLAY_URL: ${env.RUN_CHANGES_DISPLAY_URL} \n RUN_TESTS_DISPLAY_URL: ${env.RUN_TESTS_DISPLAY_URL} \n BUILD_NUMBER: ${env.BUILD_NUMBER} \n BUILD_ID: ${env.BUILD_ID} \n BUILD_DISPLAY_NAME: ${env.BUILD_DISPLAY_NAME} \n JOB_NAME: ${env.JOB_NAME} \n JOB_BASE_NAME: ${env.JOB_BASE_NAME} \n BUILD_TAG: ${env.BUILD_TAG} \n EXECUTOR_NUMBER: ${env.EXECUTOR_NUMBER} \n NODE_NAME: ${env.NODE_NAME} \n NODE_LABELS: ${env.NODE_LABELS} \n WORKSPACE : ${env.WORKSPACE} \n WORKSPACE_TMP: ${env.WORKSPACE_TMP} \n JENKINS_HOME: ${env.JENKINS_HOME} \n JENKINS_URL: ${env.JENKINS_URL} \n BUILD_URL: ${env.BUILD_URL} \n JOB_URL: ${env.JOB_URL}"
