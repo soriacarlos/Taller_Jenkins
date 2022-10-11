@@ -37,7 +37,7 @@ pipeline {
 
     stage('test') {
       steps {
-        dir('frontend') {
+        dir('frontend1') {
           sh 'npm run test'
         }
       }
