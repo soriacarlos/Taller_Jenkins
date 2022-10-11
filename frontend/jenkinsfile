@@ -11,7 +11,7 @@
       // URL of image png/jpg to place to right of Discord build notifications
       //def discordImage = 'https://blabla.png'
 
-      def discordDesc = "*ESTADO: *${currentBuild.currentResult}"
+      def discordDesc = "**Status:** ${currentBuild.currentResult}"
       def discordFooter = ""
       def discordTitle = "Jenkins - ${JOB_NAME} (build ${BUILD_DISPLAY_NAME})"
 

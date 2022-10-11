@@ -46,9 +46,4 @@ describe('AppComponent', () => {
     expect(suma).toBe(2);
   });
 
-  it('suma 1+0 = 1', () => {
-    const suma = 1+0;
-    expect(suma).toBe(1);
-  });
-
 });
